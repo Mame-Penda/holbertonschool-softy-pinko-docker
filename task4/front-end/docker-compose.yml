@@ -1,0 +1,17 @@
+services:
+back-end:
+  build:
+    context: ../back-end
+    dockerfile: Dockerfile
+  image: back-end
+  ports:
+    - "5252:5252"
+  front-end:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      image: front-end
+      ports:
+        - "9000:9000"
+  deponds_on:
+          - back-end
